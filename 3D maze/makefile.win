@@ -1,0 +1,38 @@
+# Project: 3D maze
+# Makefile created by Red Panda C++ 3.4.3279
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-mwindows" "-Wl,--stack,12582912" "-s" "-lraylib" "-lopengl32" "-lgdi32" "-lwinmm" "-static"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-Ofast" "-std=c++11" "-pipe" "-Werror=return-type" "-Werror=vla"
+CFLAGS   = $(INCS) "-Ofast" "-pipe" "-Werror=implicit-int" "-Werror=return-type" "-Werror=vla"
+NASM_FLAGS   =  "-f" "elf64"
+WINDRESFLAGS = 
+RES      = 3D_maze_private.res
+OBJ      = main.o $(RES)
+BIN      = 3D\ maze.exe
+LINKOBJ  = "main.o" "3D_maze_private.res"
+CLEANOBJ = "main.o" "3D_maze_private.res" "3D maze.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+3D\ maze.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "3D maze.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
+
+3D_maze_private.res: 3D_maze_private.rc 
+	$(WINDRES) -i "3D_maze_private.rc" --input-format=rc -o "3D_maze_private.res" -O coff $(WINDRESFLAGS) 
+
