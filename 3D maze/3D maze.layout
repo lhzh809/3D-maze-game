@@ -1,11 +1,12 @@
 [
     {
-        "caretX": 10,
-        "caretY": 589,
+        "caretX": 25,
+        "caretY": 591,
         "filename": "C:/Users/lhzh1/Desktop/RedPanda-CPP/Projects/3D maze/main.cpp",
-        "focused": false,
-        "isOpen": false,
+        "focused": true,
+        "isOpen": true,
         "left": 0,
-        "top": 12742
+        "order": 0,
+        "top": 12831
     }
 ]

@@ -588,6 +588,7 @@ int main() {
 		UpdateGame();
 		BeginDrawing();
 		BeginMode3D(camera);
+		ClearBackground(GRAY);
 		Draw3DScene();
 		EndMode3D();
 		DrawUI();
